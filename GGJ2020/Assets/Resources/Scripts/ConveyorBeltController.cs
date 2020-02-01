@@ -13,8 +13,8 @@ public class ConveyorBeltController : MonoBehaviour
         conveyorBelt1 = Instantiate(Resources.Load<GameObject>("Prefabs/Conveyor Belt"));
         conveyorBelt2 = Instantiate(Resources.Load<GameObject>("Prefabs/Conveyor Belt"));
 
-        conveyorBelt1.transform.position = new Vector3(0.0f, 0.1f, -0.5f);
-        conveyorBelt2.transform.position = new Vector3(conveyorBelt1.transform.position.x - conveyorBelt1.GetComponentInChildren<Renderer>().bounds.size.x, 0.1f, -0.5f);
+        conveyorBelt1.transform.position = new Vector3(3.0f, 0.1f, -0.5f);
+        conveyorBelt2.transform.position = new Vector3(conveyorBelt1.transform.position.x + conveyorBelt2.GetComponentInChildren<Renderer>().bounds.size.x, 0.1f, -0.5f);
 
     }
 
@@ -26,11 +26,11 @@ public class ConveyorBeltController : MonoBehaviour
 
         if (conveyorBelt1.transform.position.x <= -6.0f)
         {
-            conveyorBelt1.transform.position = new Vector3(conveyorBelt2.transform.position.x - conveyorBelt2.GetComponentInChildren<Renderer>().bounds.size.x, 0.1f, -0.5f);
+            conveyorBelt1.transform.position = new Vector3(conveyorBelt2.transform.position.x + conveyorBelt2.GetComponentInChildren<Renderer>().bounds.size.x, 0.1f, -0.5f);
         }
         else if (conveyorBelt2.transform.position.x <= -6.0f)
         {
-            conveyorBelt2.transform.position = new Vector3(conveyorBelt1.transform.position.x - conveyorBelt1.GetComponentInChildren<Renderer>().bounds.size.x, 0.1f, -0.5f);
+            conveyorBelt2.transform.position = new Vector3(conveyorBelt1.transform.position.x + conveyorBelt1.GetComponentInChildren<Renderer>().bounds.size.x, 0.1f, -0.5f);
         }
     }
 
