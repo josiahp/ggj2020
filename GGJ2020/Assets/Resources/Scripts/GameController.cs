@@ -5,10 +5,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject StartPage;
-<<<<<<< HEAD
     public GameObject Timer;
-=======
->>>>>>> a405d23f2571bf84d3b76ee6b6495340fb148ffd
+
     public float conveyorBeltSpeed = 1.0f;
     private float speedModifier = -0.5f;
 
@@ -16,7 +14,7 @@ public class GameController : MonoBehaviour
 
     // public string gameState = "not started";
     private GameStates gameState = GameStates.NOT_STARTED;
-    public enum GameStates : int{
+    public enum GameStates : byte{
         NOT_STARTED = 0,
         STARTED,
         FINISHED
@@ -48,8 +46,28 @@ public class GameController : MonoBehaviour
     {
         while (true)
         {
-            boxes.Add(Instantiate(Resources.Load<GameObject>("Prefabs/Placeholder")));
-            yield return new WaitForSeconds(3);
+            GameObject box;
+
+            bool isChicken = Random.Range(0, 50) == 0;
+            if (isChicken)
+            {
+                Debug.Log("CHICKEN");
+                box = Instantiate(Resources.Load<GameObject>("Prefabs/chicken leg piece"));
+            } else
+            {
+                box = Instantiate(Resources.Load<GameObject>("Prefabs/Placeholder"));
+            }
+
+            box.transform.RotateAround(box.GetComponentInChildren<Renderer>().bounds.center, Vector3.up, Random.Range(-10.0f, 10.0f));
+
+            bool isComicallyLarge = Random.Range(0, 50) == 0;
+            if (isComicallyLarge)
+            {
+                box.transform.localScale += new Vector3(1.0f, 1.0f, 1.0f);
+            }
+
+            boxes.Add(box);
+            yield return new WaitForSeconds(4);
         }
     }
 
