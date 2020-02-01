@@ -329,7 +329,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: point
+  m_Text: points
 --- !u!1 &4715301694136058446
 GameObject:
   m_ObjectHideFlags: 0
