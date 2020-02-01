@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class ConveyorBeltController : MonoBehaviour
 {
+    public GameObject GameController;
+
     private GameObject conveyorBelt1, conveyorBelt2;
 
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine("Movement");
         conveyorBelt1 = Instantiate(Resources.Load<GameObject>("Prefabs/Conveyor Belt"));
         conveyorBelt2 = Instantiate(Resources.Load<GameObject>("Prefabs/Conveyor Belt"));
 
-        conveyorBelt1.transform.position = new Vector3(3.0f, 0.1f, -0.5f);
+        conveyorBelt1.transform.position = new Vector3(0.0f, 0.1f, -0.5f);
         conveyorBelt2.transform.position = new Vector3(conveyorBelt1.transform.position.x + conveyorBelt2.GetComponentInChildren<Renderer>().bounds.size.x, 0.1f, -0.5f);
 
     }
@@ -21,8 +22,8 @@ public class ConveyorBeltController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        conveyorBelt1.transform.position = conveyorBelt1.transform.position + new Vector3(-0.5f * Time.deltaTime, 0f, 0f);
-        conveyorBelt2.transform.position = conveyorBelt2.transform.position + new Vector3(-0.5f * Time.deltaTime, 0f, 0f);
+        conveyorBelt1.transform.position = conveyorBelt1.transform.position + new Vector3(GameController.GetComponent<GameController>().GetConveyerBeltSpeed() * Time.deltaTime, 0f, 0f);
+        conveyorBelt2.transform.position = conveyorBelt2.transform.position + new Vector3(GameController.GetComponent<GameController>().GetConveyerBeltSpeed() * Time.deltaTime, 0f, 0f);
 
         if (conveyorBelt1.transform.position.x <= -6.0f)
         {
@@ -32,15 +33,12 @@ public class ConveyorBeltController : MonoBehaviour
         {
             conveyorBelt2.transform.position = new Vector3(conveyorBelt1.transform.position.x + conveyorBelt1.GetComponentInChildren<Renderer>().bounds.size.x, 0.1f, -0.5f);
         }
+        /*
+        Transform[] conveyorBeltCylinder = this.transform.GetComponentsInChildren<Transform>();
+        foreach (Transform child in conveyorBeltCylinder)
+        {
+            child.Rotate(new Vector3(0f, 0f, 1f) * Time.deltaTime * 20, Space.World);
+            
+        }*/
     }
-
-    /*
-    private IEnumerator Movement()
-    {
-        Vector3 pos = this.gameObject.transform.position;
-        pos.x += 1.0f;
-        
-
-        yield return new WaitForSeconds(1f);
-    }*/
 }
