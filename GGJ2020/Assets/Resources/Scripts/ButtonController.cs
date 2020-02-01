@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    public GameObject buttonPressed;
-    public GameObject buttonUnpressed;
+    public GameObject activeObject;
+    public GameObject inactiveObject;
 
     // Start is called before the first frame update
     void Start()
@@ -21,21 +21,18 @@ public class ButtonController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("pressed");
-        if (buttonPressed.active)
+        if (activeObject.active)
         {
-            Debug.Log("switched1!");
-            buttonPressed.SetActive(false);
-            buttonPressed.GetComponent<BoxCollider>().enabled = false;
-            buttonUnpressed.SetActive(true);
-            buttonUnpressed.GetComponent<BoxCollider>().enabled = true;
-        } else if (buttonUnpressed.active)
+            activeObject.SetActive(false);
+            activeObject.GetComponent<BoxCollider>().enabled = false;
+            inactiveObject.SetActive(true);
+            inactiveObject.GetComponent<BoxCollider>().enabled = true;
+        } else if (inactiveObject.active)
         {
-            Debug.Log("switched2!");
-            buttonPressed.SetActive(true);
-            buttonPressed.GetComponent<BoxCollider>().enabled = true;
-            buttonUnpressed.SetActive(false);
-            buttonUnpressed.GetComponent<BoxCollider>().enabled = false;
+            activeObject.SetActive(true);
+            activeObject.GetComponent<BoxCollider>().enabled = true;
+            inactiveObject.SetActive(false);
+            inactiveObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
 }
