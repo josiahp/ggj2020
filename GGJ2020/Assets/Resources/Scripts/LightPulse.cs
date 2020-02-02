@@ -8,35 +8,11 @@ public class LightPulse : MonoBehaviour
     float originalRange;
     float duration = 1.0f;
 
-    private Material redLight;
-    private Material yellowLight;
-    private Material greenLight;
 
     void Start()
     {
         lt = GetComponentInChildren<Light>();
         originalRange = lt.range;
-
-        int rnd = Random.Range(0, 3);
-
-        if (rnd == 0)
-        {
-            redLight = Resources.Load<Material>("Materials/Red Light");
-            gameObject.GetComponent<MeshRenderer>().material = redLight;
-            lt.color = Color.red;
-        } else if (rnd == 1)
-        {
-            yellowLight = Resources.Load<Material>("Materials/Yellow Light");
-            gameObject.GetComponent<MeshRenderer>().material = yellowLight;
-            lt.color = Color.yellow;
-        }
-        else if (rnd == 2)
-        {
-            greenLight = Resources.Load<Material>("Materials/Green Light");
-            gameObject.GetComponent<MeshRenderer>().material = greenLight;
-            lt.color = Color.green;
-        }
-
 
     }
 
