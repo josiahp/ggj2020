@@ -7,11 +7,12 @@ public class GameController : MonoBehaviour
 {
     public GameObject StartPage;
     public GameObject Timer;
+    public GameObject EndPage;
 
     public float conveyorBeltSpeed = 1.0f;
     private float speedModifier = -0.5f;
 
-    public int count = 60;
+    public int count = 10;
 
     private List<GameObject> boxes = new List<GameObject>();
 
@@ -26,6 +27,7 @@ public class GameController : MonoBehaviour
     {
         gameState = GameStates.STARTED;
         InvokeRepeating("Ticker", 0, 1f);
+        Timer.SetActive(true);
     }
 
     public void Ticker()
@@ -33,6 +35,10 @@ public class GameController : MonoBehaviour
         if (count != 0) {
             count--;
             Timer.GetComponentInChildren<Text>().text = "TIME: " + count.ToString();
+        } else if (count == 0) {
+            gameState = GameStates.FINISHED;
+            Timer.SetActive(false);
+            EndPage.SetActive(true);
         }
     }
 
