@@ -12,7 +12,6 @@ public class GameController : MonoBehaviour
 
     private List<GameObject> boxes = new List<GameObject>();
 
-    // public string gameState = "not started";
     private GameStates gameState = GameStates.NOT_STARTED;
     public enum GameStates : byte{
         NOT_STARTED = 0,
