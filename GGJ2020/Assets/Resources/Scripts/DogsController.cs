@@ -20,7 +20,7 @@ public class DogsController : MonoBehaviour
 
         dog1.transform.position = new Vector3(4f, 0.5f, 0.32f);
         dog2.transform.position = new Vector3(-2f, 0.5f, 0.31f);
-        dog3.transform.position = new Vector3(0f, 5f, 0.5f);
+        dog3.transform.position = new Vector3(0f, 10f, 0.5f);
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class DogsController : MonoBehaviour
         }
         if (dog3.transform.position.y <= -4.0f)
         {
-            dog3.transform.position = new Vector3(0f, 5f, 0.5f);
+            dog3.transform.position = new Vector3(0f, 10f, 0.5f);
         }
     }
 }
