@@ -76,9 +76,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'time: 60
-
-'
+  m_Text: 'TIME: 2'
 --- !u!1 &738977381484960147
 GameObject:
   m_ObjectHideFlags: 0

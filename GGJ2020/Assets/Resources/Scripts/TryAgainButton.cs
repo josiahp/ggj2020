@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class TryAgainButton : MonoBehaviour
 {
-    public GameObject StartPage;
     public GameObject GameController;
+    public GameObject EndPage;
+    public GameObject StartPage;
     public void OnClickTryagainButton ()
     {
-        StartPage.SetActive(false);
+        EndPage.SetActive(false);
+        GameController.GetComponent<GameController>().StartGame();
     }
 }
