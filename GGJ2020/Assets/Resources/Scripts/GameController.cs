@@ -8,9 +8,11 @@ public class GameController : MonoBehaviour
     public GameObject StartPage;
     public GameObject Timer;
     public GameObject EndPage;
+	public GameObject Music;
 
     public float conveyorBeltSpeed = 1.0f;
     private float speedModifier = -0.5f;
+	private float musicPitch = 1.0f;
 
     public int count;
     public int score;
@@ -110,5 +112,18 @@ public class GameController : MonoBehaviour
     {
         return conveyorBeltSpeed * speedModifier;
     }
+
+    private IEnumerator SpeedUp()
+	{
+        while (true)
+		{
+            if (musicPitch < 1.5f)
+			{
+				musicPitch += 0.05f;
+				Music.GetComponent<AudioSource>().pitch = musicPitch;
+			}
+			yield return new WaitForSeconds(5f);
+		}
+	}
 
 }
