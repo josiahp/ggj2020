@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.3007561}
   m_AnchorMax: {x: 0.5, y: 0.60813785}
-  m_AnchoredPosition: {x: 431, y: 363}
-  m_SizeDelta: {x: 1310, y: 185.6}
+  m_AnchoredPosition: {x: 371.05, y: 317.8}
+  m_SizeDelta: {x: 742.1, y: -42.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &738977380087473591
 CanvasRenderer:
@@ -58,14 +58,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8501678a0e62348a49d1529170b6270a, type: 3}
-    m_FontSize: 200
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '00:00
+  m_Text: 'time: 60
 
 '
 --- !u!1 &738977381484960147

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -10,10 +11,12 @@ public class GameController : MonoBehaviour
     public float conveyorBeltSpeed = 1.0f;
     private float speedModifier = -0.5f;
 
+    public int count = 60;
+
     private List<GameObject> boxes = new List<GameObject>();
 
     private GameStates gameState = GameStates.NOT_STARTED;
-    public enum GameStates : byte{
+    public enum GameStates : byte {
         NOT_STARTED = 0,
         STARTED,
         FINISHED
@@ -22,6 +25,15 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         gameState = GameStates.STARTED;
+        InvokeRepeating("Ticker", 0, 1f);
+    }
+
+    public void Ticker()
+    {
+        if (count != 0) {
+            count--;
+            Timer.GetComponentInChildren<Text>().text = "TIME: " + count.ToString();
+        }
     }
 
     // Start is called before the first frame update
