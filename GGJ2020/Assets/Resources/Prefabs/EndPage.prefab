@@ -76,7 +76,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Try Again
+  m_Text: Quit
 --- !u!1 &2362936774617329591
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,4 +529,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You got 100 points
+  m_Text: What a good doggo!

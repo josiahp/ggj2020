@@ -28,8 +28,9 @@ public class GameController : MonoBehaviour
     }
 
     public void StartGame()
-    {   
-        gameState = GameStates.STARTED;
+    {
+		EndPage.SetActive(false);
+		gameState = GameStates.STARTED;
         InvokeRepeating("Ticker", 0, 1f);
         Timer.SetActive(true);
     }

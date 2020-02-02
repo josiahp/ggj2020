@@ -16,7 +16,6 @@ public class TryAgainButton : MonoBehaviour
 
     public void OnClickTryagainButton ()
     {
-        EndPage.SetActive(false);
-        GameController.GetComponent<GameController>().StartGame();
+        Application.Quit();
     }
 }
