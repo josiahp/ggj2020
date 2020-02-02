@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     private float speedModifier = -0.5f;
 
     public int count;
+    public int score;
 
     private List<GameObject> boxes = new List<GameObject>();
 
@@ -41,6 +42,7 @@ public class GameController : MonoBehaviour
             CancelInvoke();
             Timer.SetActive(false);
             EndPage.SetActive(true);
+            score = 0;
         }
     }
 
@@ -94,7 +96,8 @@ public class GameController : MonoBehaviour
     {
         while (true)
         {
-            if(boxes[0].transform.position.x <= -3) 
+            // Debug.Log(boxes[0].GetComponentInChildren);
+            if(boxes[0].transform.position.x <= -1.5)
             {
                 Destroy(boxes[0]);
                 boxes.RemoveAt(0);
