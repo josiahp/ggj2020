@@ -339,6 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8831029823985186319}
+  - component: {fileID: 4601360038376976946}
   m_Layer: 0
   m_Name: EndPage
   m_TagString: Untagged
@@ -361,6 +362,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4601360038376976946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715301694136058446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871b99ef034df44aab58b5682efa86af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartPage: {fileID: 0}
+  GameController: {fileID: 0}
 --- !u!1 &6392665830300919372
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +493,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7827196814470535894}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4601360038376976946}
+        m_MethodName: OnClickTryagainButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6944885895993831909
 GameObject:
   m_ObjectHideFlags: 0
