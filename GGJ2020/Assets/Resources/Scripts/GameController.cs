@@ -98,6 +98,7 @@ public class GameController : MonoBehaviour
     private IEnumerator DeleteBoxes()
     {
         while (true)
+<<<<<<< Updated upstream
         {
             // Debug.Log(boxes[0].GetComponentInChildren);
             if(boxes[0].transform.position.x <= -1.7)
@@ -109,6 +110,22 @@ public class GameController : MonoBehaviour
                 Destroy(boxes[0]);
                 boxes.RemoveAt(0);
             }
+=======
+        {
+			if (boxes[0])
+			{
+				// Debug.Log(boxes[0].GetComponentInChildren);
+				if (boxes[0].transform.position.x <= -1.7)
+				{
+					if (boxes[0].GetComponent<BoxController>() && boxes[0].GetComponent<BoxController>().GetColor() == BoxController.LightColor.GREEN)
+					{
+						scoreValue += 1;
+					}
+					Destroy(boxes[0]);
+					boxes.RemoveAt(0);
+				}
+			}
+>>>>>>> Stashed changes
             yield return new WaitForSeconds(1);
         }
     }
@@ -129,6 +146,11 @@ public class GameController : MonoBehaviour
 			}
 			yield return new WaitForSeconds(5f);
 		}
+	}
+
+    public int GetScore()
+	{
+		return scoreValue;
 	}
 
 }
