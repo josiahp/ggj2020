@@ -131,7 +131,7 @@ public class BoxController : MonoBehaviour
         else if (currentBoxColor == LightColor.BROWN)
         {
             selectedColor = brownLight;
-            selectedLightColor = new Color(0.64f, 0.16f, 0.16f);
+            selectedLightColor = new Color(0.32f, 0.16f, 0.16f);
         }
         else
         {
@@ -151,38 +151,54 @@ public class BoxController : MonoBehaviour
         }
         else if (DialActive && ButtonActive && !SliderActive)
         {
-            return LightColor.PURPLE;
-        }
-        else if (DialActive && ButtonActive && SliderActive)
-        {
-            return LightColor.BLUE;
+            return LightColor.RED;
         }
         else if (DialActive && ButtonActive && SliderActive)
         {
             return LightColor.ORANGE;
         }
+        else if (DialActive && ButtonActive && SliderActive)
+        {
+            return LightColor.PURPLE;
+        }
         else if (!DialActive && ButtonActive && SliderActive)
         {
-            return LightColor.WHITE;
+            return LightColor.BLUE;
         }
         else if (!DialActive && !ButtonActive && SliderActive)
         {
-            return LightColor.BLUE;
+            return LightColor.WHITE;
         }
         else if (!DialActive && !ButtonActive && !SliderActive)
         {
-            return LightColor.BLUE;
+            return LightColor.PINK;
         }
         else if (!DialActive && ButtonActive && !SliderActive)
         {
-            return LightColor.BLUE;
+            return LightColor.SKYBLUE;
         }
         else if (DialActive && !ButtonActive && SliderActive)
         {
-            return LightColor.BLUE;
+            return LightColor.BROWN;
         }
 
         // dead code path
         return LightColor.GREEN;
+    }
+
+    public bool GetMechanismState(Mechanism m)
+    {
+        if (m == Mechanism.DIAL)
+        {
+            return DialActive;
+        } else if (m == Mechanism.BUTTON)
+        {
+            return ButtonActive;
+        } else if (m == Mechanism.SLIDER)
+        {
+            return SliderActive;
+        }
+
+        return false;
     }
 }

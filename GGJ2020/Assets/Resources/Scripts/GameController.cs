@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour
                 box = Instantiate(Resources.Load<GameObject>("Prefabs/chicken leg piece"));
             } else
             {
-                box = Instantiate(Resources.Load<GameObject>("Prefabs/Placeholder"));
+                box = Instantiate(Resources.Load<GameObject>("Prefabs/HappyDevice"));
             }
 
             box.transform.RotateAround(box.GetComponentInChildren<Renderer>().bounds.center, Vector3.up, Random.Range(-10.0f, 10.0f));
@@ -84,7 +84,7 @@ public class GameController : MonoBehaviour
             bool isComicallyLarge = Random.Range(0, 50) == 0;
             if (isComicallyLarge)
             {
-                box.transform.localScale += new Vector3(1.0f, 1.0f, 1.0f);
+				box.transform.localScale *= 3.0f;
             }
 
             boxes.Add(box);
