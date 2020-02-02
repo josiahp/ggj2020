@@ -108,6 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObject: {fileID: 3449558418076392149}
   inactiveObject: {fileID: 743700864808309673}
+  boxController: {fileID: 6589207258416863289}
+  mechanismType: 0
 --- !u!1 &1128886578581821119
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObject: {fileID: 4898948778285511264}
   inactiveObject: {fileID: 2131092485782158984}
+  boxController: {fileID: 6589207258416863289}
+  mechanismType: 2
 --- !u!65 &884547726200351239
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -431,6 +435,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObject: {fileID: 3449558418076392149}
   inactiveObject: {fileID: 743700864808309673}
+  boxController: {fileID: 6589207258416863289}
+  mechanismType: 0
 --- !u!1 &3888251341706346803
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +734,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObject: {fileID: 4898948778285511264}
   inactiveObject: {fileID: 2131092485782158984}
+  boxController: {fileID: 6589207258416863289}
+  mechanismType: 2
 --- !u!65 &8051560710783628095
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -849,6 +857,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObject: {fileID: 4933592153010303834}
   inactiveObject: {fileID: 7788232375380903510}
+  boxController: {fileID: 6589207258416863289}
+  mechanismType: 1
 --- !u!1 &6589207258416863289
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3926037675320208487}
+  - component: {fileID: 6201287912389734634}
   m_Layer: 0
   m_Name: Placeholder
   m_TagString: Untagged
@@ -881,6 +892,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6201287912389734634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589207258416863289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57bf835935c8045138b0b53060b13e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialActive: 1
+  ButtonActive: 1
+  SliderActive: 1
+  boxLight: {fileID: 1128886578581821119}
 --- !u!1 &6594697962882728525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,3 +1102,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObject: {fileID: 4933592153010303834}
   inactiveObject: {fileID: 7788232375380903510}
+  boxController: {fileID: 6589207258416863289}
+  mechanismType: 1

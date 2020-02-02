@@ -6,6 +6,9 @@ public class ButtonController : MonoBehaviour
 {
     public GameObject activeObject;
     public GameObject inactiveObject;
+    public GameObject boxController;
+
+    public BoxController.Mechanism mechanismType;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +37,7 @@ public class ButtonController : MonoBehaviour
             inactiveObject.SetActive(false);
             inactiveObject.GetComponent<BoxCollider>().enabled = false;
         }
+
+        boxController.GetComponent<BoxController>().FlipMechanism(mechanismType);
     }
 }
