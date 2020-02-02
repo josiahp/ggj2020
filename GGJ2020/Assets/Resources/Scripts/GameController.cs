@@ -8,12 +8,15 @@ public class GameController : MonoBehaviour
     public GameObject StartPage;
     public GameObject Timer;
     public GameObject EndPage;
+	public GameObject Music;
+	public GameObject Score;
 
     public float conveyorBeltSpeed = 1.0f;
     private float speedModifier = -0.5f;
+	private float musicPitch = 1.0f;
 
     public int count;
-    public int score;
+    public int scoreValue;
 
     private List<GameObject> boxes = new List<GameObject>();
 
@@ -26,7 +29,6 @@ public class GameController : MonoBehaviour
 
     public void StartGame()
     {   
-        count = 10;
         gameState = GameStates.STARTED;
         InvokeRepeating("Ticker", 0, 1f);
         Timer.SetActive(true);
@@ -36,13 +38,14 @@ public class GameController : MonoBehaviour
     {
         if (count != 0) {
             Timer.GetComponentInChildren<Text>().text = "TIME: " + count.ToString();
+			Score.GetComponentInChildren<Text>().text = "SCORE: " + scoreValue.ToString();
             count--;
         } else if (count == 0) {
             gameState = GameStates.FINISHED;
             CancelInvoke();
             Timer.SetActive(false);
             EndPage.SetActive(true);
-            score = 0;
+            scoreValue = 0;
         }
     }
 
@@ -97,8 +100,12 @@ public class GameController : MonoBehaviour
         while (true)
         {
             // Debug.Log(boxes[0].GetComponentInChildren);
-            if(boxes[0].transform.position.x <= -1.5)
+            if(boxes[0].transform.position.x <= -1.7)
             {
+                if (boxes[0].GetComponent<BoxController>().GetColor() == BoxController.LightColor.GREEN)
+				{
+					scoreValue += 1;
+				}
                 Destroy(boxes[0]);
                 boxes.RemoveAt(0);
             }
@@ -110,5 +117,18 @@ public class GameController : MonoBehaviour
     {
         return conveyorBeltSpeed * speedModifier;
     }
+
+    private IEnumerator SpeedUp()
+	{
+        while (true)
+		{
+            if (musicPitch < 1.5f)
+			{
+				musicPitch += 0.05f;
+				Music.GetComponent<AudioSource>().pitch = musicPitch;
+			}
+			yield return new WaitForSeconds(5f);
+		}
+	}
 
 }

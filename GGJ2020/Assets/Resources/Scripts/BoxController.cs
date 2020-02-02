@@ -157,10 +157,6 @@ public class BoxController : MonoBehaviour
         {
             return LightColor.ORANGE;
         }
-        else if (DialActive && ButtonActive && SliderActive)
-        {
-            return LightColor.PURPLE;
-        }
         else if (!DialActive && ButtonActive && SliderActive)
         {
             return LightColor.BLUE;
@@ -179,7 +175,7 @@ public class BoxController : MonoBehaviour
         }
         else if (DialActive && !ButtonActive && SliderActive)
         {
-            return LightColor.BROWN;
+            return LightColor.PURPLE;
         }
 
         // dead code path
