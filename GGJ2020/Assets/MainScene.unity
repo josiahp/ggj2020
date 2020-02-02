@@ -1000,6 +1000,21 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 738977381568653107, guid: fb0e18b21b26c4c6888f2fa3fa59b099,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 738977381568653107, guid: fb0e18b21b26c4c6888f2fa3fa59b099,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 738977381568653107, guid: fb0e18b21b26c4c6888f2fa3fa59b099,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 720
+      objectReference: {fileID: 0}
     - target: {fileID: 738977381568653109, guid: fb0e18b21b26c4c6888f2fa3fa59b099,
         type: 3}
       propertyPath: m_LocalPosition.x
