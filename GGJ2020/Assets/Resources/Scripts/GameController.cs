@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
 	public GameObject Music;
 	public GameObject Score;
 
-    public float conveyorBeltSpeed = 1.0f;
+    public float conveyorBeltSpeed = 0.5f;
     private float speedModifier = -0.5f;
 	private float musicPitch = 1.0f;
 
@@ -29,10 +29,17 @@ public class GameController : MonoBehaviour
 
     public void StartGame()
     {
-		EndPage.SetActive(false);
+        conveyorBeltSpeed = 0.5f;
+        musicPitch = 1.0f;
+        Music.GetComponent<AudioSource>().pitch = musicPitch;
+        scoreValue = 0;
+        count = 60;
+
+        EndPage.SetActive(false);
 		gameState = GameStates.STARTED;
         InvokeRepeating("Ticker", 0, 1f);
         Timer.SetActive(true);
+        StartCoroutine("SpeedUp");
     }
 
     public void Ticker()
@@ -56,11 +63,17 @@ public class GameController : MonoBehaviour
         StartPage.SetActive(true);
         StartCoroutine("GenerateBoxes");
         StartCoroutine("DeleteBoxes");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         foreach (GameObject box in boxes.ToArray())
         {
             box.transform.position = box.transform.position + new Vector3(GetConveyerBeltSpeed() * Time.deltaTime, 0f, 0f);
@@ -80,7 +93,7 @@ public class GameController : MonoBehaviour
                 box = Instantiate(Resources.Load<GameObject>("Prefabs/chicken leg piece"));
             } else
             {
-                box = Instantiate(Resources.Load<GameObject>("Prefabs/HappyDevice"));
+                box = Instantiate(Resources.Load<GameObject>("Prefabs/HappyDeviceV2"));
             }
 
             box.transform.RotateAround(box.GetComponentInChildren<Renderer>().bounds.center, Vector3.up, Random.Range(-10.0f, 10.0f));
@@ -92,7 +105,7 @@ public class GameController : MonoBehaviour
             }
 
             boxes.Add(box);
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(2f / conveyorBeltSpeed);
         }
     }
 
@@ -124,14 +137,20 @@ public class GameController : MonoBehaviour
 
     private IEnumerator SpeedUp()
 	{
-        while (true)
+        while (gameState == GameStates.STARTED)
 		{
-            if (musicPitch < 1.5f)
+            yield return new WaitForSeconds(15f);
+
+            if (musicPitch <= 1.2f)
 			{
 				musicPitch += 0.05f;
 				Music.GetComponent<AudioSource>().pitch = musicPitch;
 			}
-			yield return new WaitForSeconds(5f);
+
+            if (conveyorBeltSpeed <= 1.5f)
+            {
+                conveyorBeltSpeed += 0.15f;
+            }
 		}
 	}
 

@@ -43,18 +43,21 @@ public class BoxController : MonoBehaviour
         skyblueLight = Resources.Load<Material>("Materials/Skyblue Light");
         brownLight = Resources.Load<Material>("Materials/Brown Light");
 
-        if (Random.Range(0, 2) == 0)
+        do
         {
-            DialActive = false;
-        }
-        if (Random.Range(0, 2) == 0)
-        {
-            ButtonActive = false;
-        }
-        if (Random.Range(0, 2) == 0)
-        {
-            SliderActive = false;
-        }
+            if (Random.Range(0, 2) == 0)
+            {
+                DialActive = false;
+            }
+            if (Random.Range(0, 2) == 0)
+            {
+                ButtonActive = false;
+            }
+            if (Random.Range(0, 2) == 0)
+            {
+                SliderActive = false;
+            }
+        } while (GetColor() == LightColor.GREEN);
 
         UpdateColor();
     }

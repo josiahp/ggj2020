@@ -11,11 +11,17 @@ public class TryAgainButton : MonoBehaviour
 
     public void Start()
     {
-        gameObject.GetComponentInChildren<Text>().text = "You got " + GameController.GetComponent<GameController>().GetScore().ToString() + " points!";
     }
 
     public void OnClickTryagainButton ()
     {
+        EndPage.SetActive(false);
+        GameController.GetComponent<GameController>().StartGame();
+    }
+
+    public void OnClickQuitButton ()
+    {
         Application.Quit();
     }
+   
 }
